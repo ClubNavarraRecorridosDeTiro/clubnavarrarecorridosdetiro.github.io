@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CNRT - Galería</title>
+  
+  <!-- Favicons -->
+  <link href="assets/img/web/Escudo_del_gobierno_de_Navarra.svg" rel="icon" type="image/svg+xml">
+  <link href="assets/img/web/Escudo_del_gobierno_de_Navarra.svg" rel="apple-touch-icon" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+      .sitename {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+      }  
+      
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: white;
+        margin-left: 200px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .text-block {
+        flex: 1 1 calc(50% - 20px);
+        background: #eee;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+
+      .text-block h3 {
+        margin-bottom: 10px;
+        color: #ff003c;
+        font-weight: 700;
+      }
+
+      .text-block p {
+        line-height: 1.5;
+      }
+
+      .page-title {
+        text-align: center;
+        margin-top: 0px;
+        color: black;
+        font-size: 36px;
+        text-shadow: 2px 2px 6px black;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      /* Year accordion styles */
+      .year-album {
+        width: 80%;
+        margin: 30px auto;
+        border-radius: 10px;
+        background-color: #222;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        color: white;
+        overflow: hidden;
+      }
+
+      .year-header {
+        padding: 20px 30px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+        background-color: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .year-header:hover {
+        background-color: #333;
+      }
+
+      .year-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        background-color: white;
+        color: black;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .year-album.open .year-content {
+        max-height: 2000px; /* Enough to show content */
+      }
+
+      /* Nested album styles (inside year-content) */
+      .album {
+        width: 90%;
+        margin: 20px auto;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .album-header {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #333;
+        color: white;
+        padding: 15px 20px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .album-header:hover {
+        background-color: #555;
+      }
+
+      .album-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        background: white;
+      }
+
+      .album.open .album-content {
+        max-height: 1000px;
+      }
+
+      .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto 50px;
+      }
+
+      .gallery-item img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+
+      #lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        cursor: pointer;
+      }
+
+      #lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #000;
+      }
+
+      /* Icons for toggle */
+      .toggle-icon {
+        font-size: 20px;
+        user-select: none;
+        transition: transform 0.3s ease;
+      }
+
+      .open > .year-header .toggle-icon,
+      .open > .album-header .toggle-icon {
+        transform: rotate(90deg);
+      }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/web/Escudo_del_gobierno_de_Navarra.svg" alt="Escudo del Gobierno de Navarra" class="my-icon" height="40px" width="40px">
+        <h1 class="sitename">Club Navarra de Recorridos de Tiro</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="elclub.html">El Club</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="galeria.html" class="active">Galería</a></li>
+          <li><a href="enlaces.html">Enlaces</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Content for Galería -->
+    <section class="news-section">
+      <h1 class="page-title">Galería de Imágenes</h1>
+
+      <!-- Year Albums Accordion -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Lightbox -->
+      <div id="lightbox">
+        <img id="lightbox-img" src="" alt="Expanded image" />
+      </div>
+
+      <script>
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function setupLightbox() {
+  const galleryImgs = document.querySelectorAll('.gallery-img');
+  galleryImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+}
+setupLightbox();
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  lightboxImg.src = '';
+});
+
+// Toggle function for accordions (albums only)
+function toggleSection(element) {
+  element.classList.toggle('open');
+}
+
+// Year accordion toggles (only one open at a time)
+const yearHeaders = document.querySelectorAll('.year-header');
+yearHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const currentYear = header.parentElement;
+    const isOpen = currentYear.classList.contains('open');
+
+    // Close all year albums
+    document.querySelectorAll('.year-album.open').forEach(ya => {
+      ya.classList.remove('open');
+      // Close all albums inside the year
+      ya.querySelectorAll('.album.open').forEach(album => {
+        album.classList.remove('open');
+      });
+    });
+
+    // Toggle current only if it was closed
+    if (!isOpen) {
+      currentYear.classList.add('open');
+    }
+  });
+});
+
+// Album accordion toggles (only one open per year at a time)
+const albumHeaders = document.querySelectorAll('.album-header');
+albumHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const currentAlbum = header.parentElement;
+    const yearContent = currentAlbum.parentElement; // container of all albums inside a year
+    const isOpen = currentAlbum.classList.contains('open');
+
+    // Close all albums inside this year-content
+    yearContent.querySelectorAll('.album.open').forEach(album => {
+      album.classList.remove('open');
+    });
+
+    // Toggle current album only if it was closed
+    if (!isOpen) {
+      currentAlbum.classList.add('open');
+    }
+  });
+});
+
+
+
+      </script>
+
+    </section>
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

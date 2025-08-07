@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>CNRT - Inicio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/Escudo_del_gobierno_de_Navarra.svg" rel="icon" type="image/svg+xml">
+  <link href="assets/img/Escudo_del_gobierno_de_Navarra.svg" rel="apple-touch-icon" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+ <style>
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-heading {
+  animation: fadeSlideDown 1s ease-out forwards;
+  opacity: 0;
+  text-align: center;
+  margin-top: 65px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  color: white;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 1; /* Lower than nav menu */
+}
+
+body.index-page {
+  background-image: url('assets/img/web/cover.png');
+  background-size: cover; /* Crops image to fill viewport, avoids showing entire image */
+  background-color: #f0f0f0; /* Fallback color */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Allows background to adjust with resize */
+  height: 100vh;
+  position: relative;
+}
+
+body.index-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+}
+
+.main, .header {
+  position: relative;
+  z-index: 2; /* Ensure content is above overlay */
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 36px;
+  }
+  body.index-page {
+    background-size: cover; /* Consistent scaling for mobile */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  body.index-page {
+    background-size: cover; /* Adjust for medium screens */
+  }
+}
+</style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/web/Escudo_del_gobierno_de_Navarra.svg" alt="Escudo del Gobierno de Navarra" class="my-icon" height="40px" width="40px">
+        <h1 class="sitename">Club Navarra de Recorridos de Tiro</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="elclub.html">El Club</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="enlaces.html">Enlaces</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero Heading -->
+    <h1 class="hero-heading">
+      Web del Club Navarra de Recorridos de Tiro
+    </h1>
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+
+
+
