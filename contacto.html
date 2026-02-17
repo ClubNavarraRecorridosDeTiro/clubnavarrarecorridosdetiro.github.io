@@ -146,6 +146,7 @@
   </style>
 </head>
 
+
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -171,53 +172,64 @@
   </header>
 
   <main class="main">
-    <!-- Contacto Page Content -->
     <section class="contact-section">
       <h1 class="page-title">Contacto</h1>
 
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5850.283450563152!2d-1.6793198900987543!3d42.84874053640516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd508d5320ee893b%3A0x6dacf1a04af2d974!2sCampo%20de%20Tiro%20FNTO%20Aizo%C3%A1in!5e0!3m2!1ses!2ses!4v1754086983397!5m2!1ses!2ses" width="1200" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="info-blocks">
 
-<div class="info-blocks">
-  <!-- Location Block -->
-  <div class="info-card">
-    <div class="info-icon-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-        <path d="M168 0C75.1 0 0 75.1 0 168c0 87.1 112 239.5 152.6 289.4 8.7 10.7 24.1 10.7 32.8 0C272 407.5 384 255.1 384 168 384 75.1 308.9 0 216 0H168zm0 256a88 88 0 1 1 88-88 88.1 88.1 0 0 1-88 88z"/>
-      </svg>
-    </div>
-    <h4>Ubicación</h4>
-    <p class="location-text">Campo de Tiro FNTO Aizoáin</p>
-    <p class="location-text">Calle Cuartel General Mola, 0 S/N</p>
-    <p class="location-text">31195 Aizoáin, Navarra</p>
-  </div>
+        <!--
+        <div class="info-card">
+          <div class="info-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path d="M168 0C75.1 0 0 75.1 0 168c0 87.1 112 239.5 152.6 289.4 8.7 10.7 24.1 10.7 32.8 0C272 407.5 384 255.1 384 168 384 75.1 308.9 0 216 0H168zm0 256a88 88 0 1 1 88-88 88.1 88.1 0 0 1-88 88z"/>
+            </svg>
+          </div>
+          <h4>Ubicación</h4>
+          <p class="location-text">Campo de Tiro FNTO Aizoáin</p>
+          <p class="location-text">Calle Cuartel General Mola, 0 S/N</p>
+          <p class="location-text">31195 Aizoáin, Navarra</p>
+        </div>
+        -->
 
-  <!-- Contact Block -->
-  <div class="info-card">
-    <div class="info-icon-wrapper">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <path d="M467 61H45C20.2 61 0 81.2 0 106v300c0 24.8 20.2 45 45 45h422c24.8 0 45-20.2 45-45V106c0-24.8-20.2-45-45-45zM45 106h422v40.6L256 278 45 146.6V106zm0 300V185.4l211 131.4c7.5 4.7 17 4.7 24.5 0L467 185.4V406H45z"/>
-</svg>
+        <!-- Contact Block -->
+        <div class="info-card">
+          <div class="info-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M467 61H45C20.2 61 0 81.2 0 106v300c0 24.8 20.2 45 45 45h422c24.8 0 45-20.2 45-45V106c0-24.8-20.2-45-45-45zM45 106h422v40.6L256 278 45 146.6V106zm0 300V185.4l211 131.4c7.5 4.7 17 4.7 24.5 0L467 185.4V406H45z"/>
+            </svg>
+          </div>
+          <h4>Email</h4>
+          <p class="location-text"></p>
+          <p class="location-text">
+            <a href="mailto:ClubNavarraRRTT@gmail.com" style="font-size: 1.4rem; font-weight: 600;">
+              ClubNavarraRRTT@gmail.com
+            </a>
+          </p>
+        </div>
 
-    </div>
-    <h4>Email</h4>
-    <p class="location-text"> </p>
-    <p class="location-text"><a href="mailto:ClubNavarraRRTT@gmail.com">ClubNavarraRRTT@gmail.com</a></p>
-  </div>
-</div>
+      </div>
+
+      <!-- MAP -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5850.283450563152!2d-1.6793198900987543!3d42.84874053640516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd508d5320ee893b%3A0x6dacf1a04af2d974!2sCampo%20de%20Tiro%20FNTO%20Aizo%C3%A1in!5e0!3m2!1ses!2ses!4v1754086983397!5m2!1ses!2ses"
+        width="1200"
+        height="600"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
 
     </section>
   </main>
-  
-  <!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
+
